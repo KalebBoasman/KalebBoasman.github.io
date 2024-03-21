@@ -1,0 +1,109 @@
+/* ========================================
+each style is applied in order so 
+anything above will be overwritten by below
+
+The only exception is if the
+specificity value is higher it
+takes priority
+
+Specificity values:
+style attribute     - 1000
+ID                  - 100
+Class or attribute  - 10
+Elements            - 1
+
+e.g.-------------------------------------
+p                            = 1
+.test                        = 10
+p.test                       = 11
+p.test1.test2                = 21
+#demo                        = 100
+p#class                      = 101
+#navbar p#demo               = 201
+<p style = "color:pink;">    = 1001
+*                            = 0
+-----------------------------------------
+========================================== */
+/* universal selector */
+* {
+  /* this font family looks for each font in order before defaulting back to any sans-serif */
+  font-family: "Lato Extended", "Lato", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  /* ===================================================
+  REM is basically a standardised size that uses
+  the font size setting of the user themselves.
+  It is recommended that REM is used for all font sizes
+  =================================================== */
+  font-size: 1rem;
+  text-transform: none;
+  color: rgb(53, 162, 187);
+}
+
+/* element selector */
+/* note: spans/children do not inherit styles without specifically setting this */
+/* layout specific properties are an exception and are inherited automatically */
+body {
+  text-align: center;
+  border: 4px solid skyblue;
+}
+
+h1 {
+  color: rgb(48, 154, 57);
+  border: 6px solid green;
+}
+h2 {
+  color: rgb(34, 121, 83);
+}
+h3 {
+  color: rgb(45, 115, 177);
+  border: 2px solid coral;
+}
+p {
+  color: rgb(233, 136, 31);
+}
+/* referencing the child "span" of element "p" */
+p span {
+  color: red;
+}
+ul > li {
+  color: violet;
+}
+li strong {
+  color: black;
+}
+
+/* 
+class selector 
+class takes priority over the element selectors above
+*/
+.my-colors {
+  color: purple;
+}
+/* class selector but only for paragraphs with class */
+p.myc-colors {
+  color: pink;
+}
+
+/* 
+id selector 
+ID takes priority over class selectors and element selectors
+*/
+#instructor {
+  color: rgb(90, 27, 173);
+}
+#firstpara {
+  color: rgb(13, 77, 133);
+}
+
+/* attribute selector */
+[data-email="email"] {
+  color: blue;
+}
+
+/* group selectors */
+/* 
+h1, p, .my-colors, #instructor { 
+  color:red;
+}
+*/
