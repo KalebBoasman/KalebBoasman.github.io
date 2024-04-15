@@ -1,6 +1,6 @@
 body {
   border: 1vw solid rgb(220, 127, 20);
-  background-color: rgb(228, 225, 233);
+  background-color: rgb(233, 226, 208);
   font-family: "Lato Extended", "Lato", "Helvetica Neue", Helvetica, Arial;
   font-size: 1.2rem;
   text-align: center;
@@ -19,7 +19,6 @@ h1 {
   font-family: "Titan One", sans-serif;
   font-weight: 400;
   font-style: normal;
-
 }
 
 a{
@@ -56,12 +55,11 @@ ol {
   margin: 0 auto;
   text-align: left;
 }
+
 ol li div {
   color: black;
   font-weight: 500;
   font-style: normal;
-}
-
-ul {
-
+  padding-bottom: 25px;
+  padding-top: 5px;
 }
