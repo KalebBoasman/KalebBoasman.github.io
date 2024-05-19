@@ -1,10 +1,30 @@
+<!--
+	USER EXPERIENCE DESIGN ASSIGNMENT 2 - MEDIA PLAYER
+	Kaleb Boasman s4006038
+
+	I chose the music album direction and followed through by using the music album assets but
+	decided to call it an "audio player" rather than a "music player" or "media player".
+	This seemed fitting since the sounds weren't any sort of cohesive album and multiple were simply soundscapes rather than music.
+	I do hope this still fits the brief as I attempted to include as many UI features and functions as I could
+	with the limited resources and it is still perfectly viable as a music album player.
+-->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<!-- add the font family of your choice -->
+		<meta name="player" content="width=device-width, initial-scale=1.0" />
+		<!--Dont know where the name "Audio Wizard" came from it was initially a placeholder but i find it fits the font and theme of the site-->
+		<title>Audio Wizard</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+			rel="stylesheet" />
+
 		<link rel="stylesheet" href="reset.css" />
 		<link rel="stylesheet" href="style.css" />
 		<script src="script.js" defer></script>
@@ -12,80 +32,222 @@
 	<body>
 		<!-- Header Section -->
 		<header>
-			<h1>Media Player Website</h1>
+			<h1>Audio Wizard</h1>
 		</header>
 
-		<!-- Navigation Section -->
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Videos</a></li>
-				<li><a href="#">Music</a></li>
-				<li><a href="#">Playlists</a></li>
-				<!-- Add or remove navigation items as needed -->
-			</ul>
-		</nav>
+		<!--
+			I wanted to have a navigation bar for a lyrics and music selection tab but the
+			provided music resource for the music album does not have any lyrics or any
+			information at all to display so i decided to remove the navbar and centralise it.
+
+			(This also led to my decision to turn it into an audio player rather than exclusively
+			a music album player.)
+		-->
 
 		<!-- Main Content Section -->
 		<main class="container">
-			<!-- Media Player Section -->
-			<div class="media-player">
-				<video id="custom-video-player" controls>
+			<!-- 
+				Audio selection list
+
+				My choice of a table here was just to assist in the CSS sheet but i
+				easily could have just used IDs and classes to seperate them. Decided to
+				keep it because it was nonetheless effective at organising the audios even
+				if its a little cluttered.
+			-->
+			<div class="audio-select">
+				<table>
+					<tr id="audio-1">
+						<td>
+							<button id="audio-1-btn" onclick="audioSelect1()">
+								<img
+									id="audio-1-img"
+									src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/play.png"
+									alt="audio 1 play Button"
+									width="40"
+									height="40" />
+							</button>
+						</td>
+						<td class="audio-name">
+							<span>He's</span>
+						</td>
+					</tr>
+
+					<tr id="audio-2">
+						<td>
+							<button id="audio-2-btn" onclick="audioSelect2()">
+								<img
+									id="audio-2-img"
+									src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/play.png"
+									alt="audio 2 play Button"
+									width="40"
+									height="40" />
+							</button>
+						</td>
+						<td class="audio-name">
+							<span>Dry Down feat. Ben Snaath</span>
+						</td>
+					</tr>
+
+					<tr id="audio-3">
+						<td>
+							<button id="audio-3-btn" onclick="audioSelect3()">
+								<img
+									id="audio-3-img"
+									src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/play.png"
+									alt="audio 3 play Button"
+									width="40"
+									height="40" />
+							</button>
+						</td>
+						<td class="audio-name">
+							<span>Leapt</span>
+						</td>
+					</tr>
+
+					<tr id="audio-4">
+						<td>
+							<button id="audio-4-btn" onclick="audioSelect4()">
+								<img
+									id="audio-4-img"
+									src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/play.png"
+									alt="audio 4 play Button"
+									width="40"
+									height="40" />
+							</button>
+						</td>
+						<td class="audio-name">
+							<span>Water Feature</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<!--
+				Audio Player Section
+				Mp3 files obviously dont support a multimedia player so i focused on making the controls for audio
+			-->
+			<div class="audio-player">
+				<!--Just displays the current audio name nothing special-->
+				<h2 id="current-audio-name">Currently Playing: He's</h2>
+				<audio id="custom-audio-player" controls>
 					<source
-						src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
-						type="video/mp4" />
-				</video>
-				<div class="custom-controls">
+						id="current-audio"
+						src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/p-hase_Hes.mp3"
+						type="audio/mp3" />
+				</audio>
+				<div class="audio-controls">
 					<button id="play-pause-btn" onclick="togglePlayPause()">
 						<img
 							id="play-pause-img"
-							src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/play.png"
 							alt="Play Button"
-							width="24"
-							height="24" />
+							width="60"
+							height="40" />
 					</button>
-					<!-- add the missing buttons or functionality here -->
 					<!--
-                  For the music album i
-
+                 Timeskipping is important in an audio browser and I had the thought to make the forward step
+					  be 30 seconds and the backward step be 15 seconds because some media players do this for finer
+					  audio navigation.
                -->
-					<button id="timeskip-backward-btn" onclick="skipBackward()">
+					<button id="backward-15-btn" onclick="skipBackward()">
 						<img
-							id="play-pause-img"
-							src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-							alt="BackwardSkip Button"
-							width="24"
-							height="24" />
+							id="backward-15-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/backward-button.png"
+							alt="Backward 15 Button"
+							width="60"
+							height="40" />
 					</button>
-					<button id="timeskip-forward-btn" onclick="skipForward()">
+					<button id="forward-30-btn" onclick="skipForward()">
 						<img
-							id="play-pause-img"
-							src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-							alt="ForwardSkip Button"
-							width="24"
-							height="24" />
+							id="forward-30-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/resume-button.png"
+							alt="Forward 30 Button"
+							width="60"
+							height="40" />
 					</button>
 
 					<div class="progress-bar">
 						<span id="progress-bar-fill"></span>
 					</div>
+
+					<!--
+						For browsing albums i thought itd be very important to have a next audio and previous audio button.
+						Typically the next audio and previous audio buttons sit on the right hand side too.
+						Debated not having them loop around the list since a lot of media players dont but I decided it makes
+						sense without any sort of discovery algorithm like spotify.
+					-->
+					<button id="previous-audio-btn" onclick="previousAudio()">
+						<img
+							id="previous-audio-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/skip-to-start.png"
+							alt="Previous audio Button"
+							width="60"
+							height="40" />
+					</button>
+					<button id="next-audio-btn" onclick=" nextAudio()">
+						<img
+							id="next-audio-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/end.png"
+							alt="Next audio Button"
+							width="60"
+							height="40" />
+					</button>
+				</div>
+				<!--
+					This audio timer is preset to the start of the first audio and is
+					then updated through javascript.
+				-->
+				<h2 id="audio-timer">0:0-1:52</h2>
+
+				<!--
+					The progress bar was becoming too small so i moved the volume controls
+					onto their own line.
+				-->
+				<div class="volume-controls">
+					<!--
+						Added a simple mute button
+					-->
+					<button id="mute-btn" onclick=" toggleMute()">
+						<img
+							id="mute-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/mute.png"
+							alt="Mute Button"
+							width="40"
+							height="40" />
+					</button>
+					<button id="volume-down-btn" onclick=" volumeDown()">
+						<img
+							id="volume-down-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/low-volume.png"
+							alt="Volume Down Button"
+							width="40"
+							height="40" />
+					</button>
+					<button id="volume-up-btn" onclick=" volumeUp()">
+						<img
+							id="volume-up-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/high-volume.png"
+							alt="Volume Up Button"
+							width="40"
+							height="40" />
+					</button>
+					<h2 id="volume-tracker">Volume:100</h2>
 				</div>
 			</div>
-
-			<!-- Additional Content Section -->
-			<section>
-				<h2>Additional Content</h2>
-				<p>This is where you can showcase any other relevant content.</p>
-				<!-- Add more content as needed -->
-			</section>
 		</main>
 
 		<!-- Footer Section -->
 		<footer>
-			<p>&copy; 2024 Media Player Website. All rights reserved.</p>
-			<a href="https://icons8.com/icon/59862/play">Play</a> icon by
-			<a href="https://icons8.com">Icons8</a>
-			<a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
+			<p>&copy; 2024 Audio Wizard Website. All rights reserved.</p>
+			<a href="https://icons8.com/icon/59862/play">Play</a>,
+			<a href="https://icons8.com/icon/43643/pause">Pause</a>,
+			<a href="https://icons8.com/icon/RBxso5pvnA29/skip-to-start">Start</a>,
+			<a href="https://icons8.com/icon/xruQNezCArqC/end">End</a>,
+			<a href="https://icons8.com/icon/NZsXeTxPLdZH/backward-button">Backwards</a>,
+			<a href="https://icons8.com/icon/4F0PHtkpqLyC/resume-button">Forwards</a>,
+			<a href="https://icons8.com/icon/48321/mute">Mute</a>,
+			<a href="https://icons8.com/icon/44809/audio">VolumeUp</a>
+			<a href="https://icons8.com/icon/55903/low-volume">VolumeDown</a> icons by
 			<a href="https://icons8.com">Icons8</a>
 		</footer>
 	</body>
