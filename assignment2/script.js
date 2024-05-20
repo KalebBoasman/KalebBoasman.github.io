@@ -5,12 +5,15 @@ especially the mute function so it can return the previous level*/
 var volume = 0.5;
 //audioTrack variable designates which audio is currently selected
 var audioTrack = 1;
+//The repeatOn variable just tracks the state of the repeat button for use in the code.
+var repeatOn = false;
 
 /* I tried to only make new consts and variables for things that would get called often
 but most of them got called often enough to save clutter by defining them here */
 const playPauseBtn = document.querySelector("#play-pause-btn");
 const playPauseImg = document.querySelector("#play-pause-img");
 
+const repeatBtn = document.querySelector('#repeat-btn')
 const muteBtn = document.querySelector('#mute-btn');
 const volumeUpBtn = document.querySelector("#volume-up-btn");
 const volumeDownBtn = document.querySelector("#volume-down-btn");
@@ -63,18 +66,40 @@ function togglePlayPause() {
   }
 }
 
+/*
+This function just toggles the repeatCheck variable that is used in other functions
+to decided whether to repeat the same audio. It also handles the colour changing
+for the button.
+*/
 
-//function that checks if the audio is finished and moves it onto the next audio. also loops it.
+function repeatCheck () {
+   if (repeatOn == false){
+      repeatOn = true;
+      repeatBtn.style.backgroundColor = "#36329c";
+   }
+   else
+   {
+      repeatOn = false;
+      repeatBtn.style.backgroundColor = "#191827";
+   }
+}
+
+//function that checks if the audio is finished and moves it onto the next audio.
+//Also checks if repeat is on to determine whether it moves up
 function audioFinishCheck() {
    if (audio.ended) {
-      if (audioTrack != 4){
-         audioTrack = audioTrack+1;
-         audioCheck();
+      if (repeatOn == false){
+        if (audioTrack != 4){
+           audioTrack = audioTrack+1;
+           audioCheck();
+        }
+      
+        else {
+           audioTrack = 1;
+           audioCheck();
+        }
       }
-      else {
-         audioTrack = 1;
-         audioCheck();
-      }
+      else {audioCheck();}
    }
 }
 
@@ -87,7 +112,7 @@ This is a rather common and popular feature so I included it.
 */
 
 function previousAudio() {
-   if (audio.currentTime <= 5)
+   if (audio.currentTime <= 5 && repeatOn == false)
       if (audioTrack != 1){
          audioTrack = audioTrack-1;
          audioCheck();
@@ -102,14 +127,17 @@ function previousAudio() {
 }
 
 function nextAudio() {
-   if (audioTrack != 4){
-      audioTrack = audioTrack+1;
-      audioCheck();
+   if (repeatOn == false){
+     if (audioTrack != 4){
+        audioTrack = audioTrack+1;
+        audioCheck();
+     }
+     else {
+        audioTrack = 1;
+        audioCheck();
+     }
    }
-   else {
-      audioTrack = 1;
-      audioCheck();
-   }
+   else {audioCheck()}
 }
 
 

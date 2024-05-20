@@ -7,37 +7,40 @@ less visually intrusive which is important for an interface designed for an
 audio experience.
 */
 :root {
-   --music-bg-color: #282631;
-   --secondary-bg-color: #4a4953;
-   --primary-bg-color: #3a3841;
-   --text-color: #333;
-   --main-bg-color: #111120;
-   --main-text-color: #fff;
-   --main-btn-bg-color: #191827;
-   --selected-color:  #211e6b;
-   --progress-bar-gradient: linear-gradient(to right, rgb(26, 70, 216), rgb(129, 18, 173));
- }
+	--music-bg-color: #282631;
+	--secondary-bg-color: #4a4953;
+	--primary-bg-color: #3a3841;
+	--text-color: #333;
+	--main-bg-color: #111120;
+	--main-text-color: #fff;
+	--main-btn-bg-color: #191827;
+	--selected-color: #211e6b;
+	--progress-bar-gradient: linear-gradient(
+		to right,
+		rgb(26, 70, 216),
+		rgb(129, 18, 173)
+	);
+}
 
-
- /*
+/*
  Robot Mono is one of my favourite fonts as its very clean and readable
  but also still sleek and modern in appearance. Felt right to use in this
  program with its modern theme.
  */
- body,
- h1,
- h2,
- p,
- ul {
-   margin: 0;
-   padding: 0;
-   font-family: "Roboto Mono", monospace;
- }
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto Mono", monospace;
+}
 
 .audio-select {
-  display: flex;
-  flex-direction: column;
-    table-layout: fixed;
+	display: flex;
+	flex-direction: column;
+	table-layout: fixed;
 }
 
 /*
@@ -47,209 +50,206 @@ Using a table allowed me to style each layer of the table differently
 for a clean UI
 */
 table {
-  border-collapse: collapse;
-  margin-bottom: 30px;
+	border-collapse: collapse;
+	margin-bottom: 30px;
 }
 
-tr{
-  background-color: var(--music-bg-color);
-   color: var(--main-text-color);
-   border: none;
-   padding: 8px 8px;
-   margin-bottom: 8px;
-   margin-left: 200px;
-   margin-right: 200px;
-   cursor: pointer;
-   font-size: 16px;
-   display: flex;
-   flex-direction: row;
-   border-radius: 10px;
-   align-items: center;
-   font-family: "Roboto Mono", monospace;
-   box-shadow: 0 0 10px #5c5c5c;
+tr {
+	background-color: var(--music-bg-color);
+	color: var(--main-text-color);
+	border: none;
+	padding: 8px 8px;
+	margin-bottom: 8px;
+	margin-left: 200px;
+	margin-right: 200px;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	flex-direction: row;
+	border-radius: 10px;
+	align-items: center;
+	font-family: "Roboto Mono", monospace;
+	box-shadow: 0 0 10px #5c5c5c;
 }
 
 .audio-name {
-  background-color: var(--main-btn-bg-color);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  border: none;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  cursor: pointer;
-  font-size: 20px;
-  box-shadow: 0 0 10px #191827;
+	background-color: var(--main-btn-bg-color);
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	border: none;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	cursor: pointer;
+	font-size: 20px;
+	box-shadow: 0 0 10px #191827;
 }
 
-td button{
-  background-color: var(--main-btn-bg-color);
-   border: none;
-   border-radius: 15px;
-   padding: 5px 5px;
-   margin-right: 10px;
-   cursor: pointer;
-   font-size: 16px;
-   display: flex;
-   align-items: center;
-   box-shadow: 0 0 10px #191827;
-   transition: 0.3s ease;
+td button {
+	background-color: var(--main-btn-bg-color);
+	border: none;
+	border-radius: 15px;
+	padding: 5px 5px;
+	margin-right: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 10px #191827;
+	transition: 0.3s ease;
 }
 
- /* Create a container for the main content */
- .container {
-   max-width: 900px;
-   width: 100%;
-   padding: 10px;
-   align-items: center;
- }
-
- 
- body {
-  font-family: "Arial", sans-serif;
-  background-color: var(--primary-bg-color);
-  color: var(--main-text-color);
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+/* Create a container for the main content */
+.container {
+	max-width: 900px;
+	width: 100%;
+	padding: 10px;
+	align-items: center;
 }
 
- 
- /* 
+body {
+	font-family: "Arial", sans-serif;
+	background-color: var(--primary-bg-color);
+	color: var(--main-text-color);
+	line-height: 1.6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* 
  Couldnt merge (header) into (header h1) because the
  background and the padding would apply only to the 
  text and not the entire header. 
  Also used vw as the measurement to enable scaling
  */
- header {
-   background-color: var(--main-bg-color);
-   color: var(--main-text-color);
-   padding: 10px 0;
-   text-align: center;
-   font-size: 3.5vw;
-   width: 100%;
- }
+header {
+	background-color: var(--main-bg-color);
+	color: var(--main-text-color);
+	padding: 10px 0;
+	text-align: center;
+	font-size: 3.5vw;
+	width: 100%;
+}
 
- /*
+/*
  Added this section in to bring the specificity value higher
  than the general font setting at the top of the document.
 
  Chose the Major Mono Display font because it looked modern and
  interesting enough to serve as an eyecatching title
   */
- header h1 {
-   font-family: "Major Mono Display", monospace;
-   font-weight: 500;
-   font-style: normal;
-   text-shadow: 0 0 10px #b9b9b9;
- }
-  
- /* 
+header h1 {
+	font-family: "Major Mono Display", monospace;
+	font-weight: 500;
+	font-style: normal;
+	text-shadow: 0 0 10px #b9b9b9;
+}
+
+/* 
 AUDIO PLAYER STYLING
  
 Used a lot of rounded corners and padding to make a modern looking
 and very spacious UI since there is plenty of space on the screen
 to work with when its an audio player.
  */
- .audio-player {
-   width: 100%;
-   margin: 0 auto;
-   background-color: var(--music-bg-color);
-   padding-left: 15px;
-   padding-right: 15px;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   border-radius: 20px;
-   box-shadow: 0 0 10px #5c5c5c;
- }
- .audio-player video {
-   max-width: 100%;
-   position: fixed;
- }
- 
- .audio-controls {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 0.5rem;
-   margin-top: 6px;
-   width: 100%;
- }
- .audio-controls button {
-   background-color: var(--main-btn-bg-color);
-   color: var(--main-text-color);
-   border: none;
-   padding: 4px 4px;
-   cursor: pointer;
-   font-size: 16px;
-   display: flex;
-   align-items: center;
-   border-radius: 5px;
-   box-shadow: 0 0 10px #191827;
-   transition: 0.3s ease;
- }
+.audio-player {
+	width: 100%;
+	margin: 0 auto;
+	background-color: var(--music-bg-color);
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 20px;
+	box-shadow: 0 0 10px #5c5c5c;
+}
+.audio-player video {
+	max-width: 100%;
+	position: fixed;
+}
+
+.audio-controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 6px;
+	width: 100%;
+}
+.audio-controls button {
+	background-color: var(--main-btn-bg-color);
+	color: var(--main-text-color);
+	border: none;
+	padding: 4px 4px;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #191827;
+	transition: 0.3s ease;
+}
 
 .volume-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 6px;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 6px;
+	width: 100%;
 }
 .volume-controls button {
-  background-color: var(--main-btn-bg-color);
-  color: var(--main-text-color);
-  border: none;
-  padding: 4px 4px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #191827;
-  transition: 0.3s ease;
-}
- 
- /* Timer just looks better centered under the progress bar */
- #audio-timer {
-  text-align: center;
+	background-color: var(--main-btn-bg-color);
+	color: var(--main-text-color);
+	border: none;
+	padding: 4px 4px;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #191827;
+	transition: 0.3s ease;
 }
 
+/* Timer just looks better centered under the progress bar */
+#audio-timer {
+	text-align: center;
+}
 
- .progress-bar {
-   width: 100%;
-   height: 12px;
-   background-color: #7a7a7a;
-   margin-top: 8px;
-   overflow: hidden;
-   box-shadow: 0 0 4px #96939c;
- }
- 
- /* 
+.progress-bar {
+	width: 100%;
+	height: 12px;
+	background-color: #7a7a7a;
+	margin-top: 8px;
+	overflow: hidden;
+	box-shadow: 0 0 4px #96939c;
+}
+
+/* 
  Swapped the progress bar colour for a gradient because it matched
  the colours of the control scheme better 
  */
- .progress-bar span {
-   display: block;
-   height: 100%;
-   background-image: var(--progress-bar-gradient);
-   width: 0;
-   transition: width 0.3s ease;
- }
- 
- /* 
+.progress-bar span {
+	display: block;
+	height: 100%;
+	background-image: var(--progress-bar-gradient);
+	width: 0;
+	transition: width 0.3s ease;
+}
+
+/* 
  Made font size based on vw to scale with the zoom levels
  so that the footer doesnt cover too much of the screen
  */
- footer {
-   background-color: var(--main-bg-color);
-   color: var(--main-text-color);
-   text-align: center;
-   padding: 10px 0;
-   font-size: 1vw;
-   width: 100%;
- }
+footer {
+	background-color: var(--main-bg-color);
+	color: var(--main-text-color);
+	text-align: center;
+	padding: 10px 0;
+	font-size: 1vw;
+	width: 100%;
+}

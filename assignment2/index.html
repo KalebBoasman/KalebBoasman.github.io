@@ -123,7 +123,8 @@
 			</div>
 
 			<!--
-				Audio Player Section
+				AUDIO PLAYER SECTION 
+				UPPER)
 				Mp3 files obviously dont support a multimedia player so i focused on making the controls for audio
 			-->
 			<div class="audio-player">
@@ -192,6 +193,19 @@
 							width="60"
 							height="40" />
 					</button>
+					<!--
+						I originally left out the repeat button since I thought it was redundant with the audio player looping
+						through the songs already. Then i realised that this allowed me to apply another functionality to it in
+						the form of a single audio repeat toggle.
+					-->
+					<button id="repeat-btn" onclick=" repeatCheck()">
+						<img
+							id="repeat-img"
+							src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/repeat.png"
+							alt="Repeat Button"
+							width="60"
+							height="40" />
+					</button>
 				</div>
 				<!--
 					This audio timer is preset to the start of the first audio and is
@@ -200,6 +214,9 @@
 				<h2 id="audio-timer">0:0-1:52</h2>
 
 				<!--
+					AUDIO PLAYER SECTION
+					(LOWER)
+
 					The progress bar was becoming too small so i moved the volume controls
 					onto their own line.
 				-->
@@ -245,6 +262,7 @@
 			<a href="https://icons8.com/icon/xruQNezCArqC/end">End</a>,
 			<a href="https://icons8.com/icon/NZsXeTxPLdZH/backward-button">Backwards</a>,
 			<a href="https://icons8.com/icon/4F0PHtkpqLyC/resume-button">Forwards</a>,
+			<a href="https://icons8.com/icon/48338/repeat">Repeat</a>,
 			<a href="https://icons8.com/icon/48321/mute">Mute</a>,
 			<a href="https://icons8.com/icon/44809/audio">VolumeUp</a>
 			<a href="https://icons8.com/icon/55903/low-volume">VolumeDown</a> icons by
