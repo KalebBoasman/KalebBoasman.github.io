@@ -1,0 +1,113 @@
+<!--  
+Assignment 3 - Kaleb Boasman - s4006308  
+Navigation feature -> Click
+
+After researching how difficult it would be to create a draggable map I quickly
+abandoned the idea as it required the use of libraries or highly complex code that
+i didn't have the confidence to navigate. Instead I elaborated on my other navigation
+idea of a collapsible sidebar that now included a sticky navbar. The navbar would
+move between main pages and the sidebar would be to navigate the current page. These two
+combined will work well to handle the large amounts of content involed in the World of Palea
+project. As of this moment the pages are mainly placeholders for the sake of demonstrating
+functionality but the pages will be quite long in the future.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The World Of Palea</title>
+
+		<!-- Roboto Mono continues to be the most fitting font for my projects and I've
+       even used it in other classes so I decided to continue using it here. Its clean,
+       modern and easy to read. -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+			rel="stylesheet" />
+
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<header id="header">
+			THE WORLD OF PALEA
+			<h2>a collaborative worldbuilding project</h2>
+		</header>
+		<div id="sidebar" class="sidebar">
+			<a href="javascript:void(0)" class="closebtn" onclick="navToggle()"
+				>&times;</a
+			>
+			<a href="#1">World Summary</a>
+			<a href="#2">Timescales and Measurements</a>
+			<a href="#3">Major Geographical Features</a>
+			<a href="#4">Placeholder 4</a>
+			<a href="#5">Placeholder 5</a>
+			<a href="#6">Placeholder 6</a>
+			<a href="#7">Placeholder 7</a>
+		</div>
+		<nav id="navbar">
+			<button class="openbtn" onclick="navToggle()">☰ Menu</button>
+			<a href="index.html" id="currentlySelected">Home</a>
+			<a href="gallery.html">Gallery</a>
+			<a href="events.html">Events</a>
+			<a href="systems.html">Systems</a>
+			<a href="nations.html">Nations</a>
+		</nav>
+		<main id="container">
+			<div id="mainContent">
+				<h3 id="1">World Summary</h3>
+				<p>
+					The world of Palea is undergoing a rapture. Half a century ago the Great
+					Nations of the world sent their men off to die in the blistering deserts of
+					the Divide, the blood of millions mixing with the currents of black gold
+					running beneath the sands. Now the dust has settled and the people of Palea
+					look inwards. It is an era of humanism, political theory, decolonisation
+					and revolution. The actions of brave individuals, determined resistance
+					movements and secret organisations will shape this era, not nations. To add
+					to the cacophony of chaos engulfing Palea, a small population of gifted men
+					and women are beginning to discover their hidden abilities - whether they
+					use their newfound powers for good or evil remains to be seen.
+				</p>
+				<h3 id="2">Timescales and Measurements</h3>
+				<p>Timescales 666 days in a year ,</p>
+				<p>12 months in a year</p>
+				<p>5 weeks per month</p>
+				<p>11 days in a week</p>
+				<p>55 days in a month</p>
+				<p>final month is 61 days</p>
+				<h3 id="3">Major Geographical Features</h3>
+				<p>
+					Planet 20° axial tilt 58 million km² of land 5000 km radius Continents Opia
+					(~26 million km²) Zuresh (~23 million km²) Adhrea (~9 million km²)
+					Sub-regions Eldoria Meridonia Oceans Summer Sea (Top) Luminaris (Bottom)
+					PLACEHOLDER (Wraps from left to right) Seas Serene Sea (Middle)
+				</p>
+				<h3 id="4">placeholder</h3>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<h3 id="5">placeholder</h3>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<h3 id="6">placeholder</h3>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<h3 id="7">placeholder</h3>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+				<p>placeholder paragraph</p>
+			</div>
+		</main>
+		<!--This reserving of rights isn't particularly serious but it felt wrong to not have anything in the footer.-->
+		<footer id="footer">
+			The creative worldbuilding contained within this website is the collective
+			property of Jake Somboon and collaborators. All rights reserved.
+		</footer>
+	</body>
+</html>

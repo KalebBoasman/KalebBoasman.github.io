@@ -1,0 +1,186 @@
+
+/* 
+I enjoyed the use of an inbuilt colour palette that we used in assignment2
+so I used it again hear. I went with a very clean grey, white and orange as
+this document will be information heavy and it needs to be clear.
+*/
+:root {
+	--bg_color: #dfdfdf;
+	--secondary_bg_color: #e7681e;
+	--btn_text_color: #ceccc4;
+	--main_text_color: #161616;
+	--main_btn_bg_color: #181515;
+   --hover_color: #ac6c38;
+}
+/*
+Transitions were a big part of the styling here as It creates a webpge
+that flows cleanly. After i discovered them in the last assessment I
+wanted to make full use of them here. The transitions also operate when
+zooming which I did not realise but I liked the bouncy appearance this gave
+it and kept it.
+*/
+
+/*
+All font sizes and the majority of padding sizes are reliant on 
+view width so that the webpage looks nearly identical at all zoom
+levels and resolutions. The navigation bars get a little broken
+at extremely high zooms and this might not be fully viable for mobile
+use but I haven't tested that yet.
+*/
+
+body, h1, h2, p, ul {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto Mono", monospace;
+   background-color: var(--bg_color);
+   color: var(--main_text_color);
+   text-align: center;
+   overflow-x: hidden;
+   font-size: 1vw;
+   transition: 0.5s;
+}
+
+#mainContent {
+   transition: margin-left .5s;
+   padding-top: 16px;
+   padding-bottom: 16px;
+   padding-left: 10vw;
+   padding-right: 10vw;
+   
+ }
+
+/* Reused the main container from assignment 2 to control
+the spacing on the main content effectively. */
+#container{
+	width: 100%;
+	padding-right: 100px;
+	align-items: center;
+}
+
+h3 {
+   font-size: 2vw;
+   transition: 0.5s;
+}
+
+header {
+   text-align: center;
+   background-color: var(--secondary_bg_color);
+   color: var(--text_color);
+   padding: 20px 0;
+   margin: 0;
+   font-size: 3vw;
+   font-weight: 700;
+   transition: 0.5s;
+ }
+
+ header h2{
+   text-align: center;
+   background-color: var(--secondary_bg_color);
+   color: var(--text_color);
+   margin: 0;
+   font-size: 1.5vw;
+ }
+
+/*Made the navbar sticky for quick access. The webpage isn't particularly
+long right now because the content wasnt a part of the assessment but
+in the future it would likely be very long*/
+
+nav
+{
+   background-color: var(--main_btn_bg_color);
+   padding: 10px;
+   transition: 0.5s;
+   position: sticky;
+   top: 0;
+}
+
+ nav a {
+   padding-left: 30px;
+   padding-right: 30px;
+   text-decoration: none;
+   font-size: 1.5vw;
+   color: var(--btn_text_color);
+   transition: 0.5s;
+ }
+
+ /* Just makes it more obvious what page you're currently on */
+ nav #currentlySelected {
+   color: var(--secondary_bg_color);
+ }
+
+ /* Colouring the text on hover was the most subtle way I could
+ think to indicate to the user that the text is interactable */
+
+ nav a:hover {
+   color: var(--hover_color)
+ }
+
+ .openbtn {
+   cursor: pointer;
+   padding: 10px 15px;
+   border: none;
+   padding-left: 30px;
+   padding-right: 30px;
+   text-decoration: none;
+   font-size: 1.5vw;
+   color: var(--btn_text_color);
+   transition: 0.5s;
+   background-color: var(--main_btn_bg_color);
+ }
+
+ .openbtn:hover {
+   color: var(--hover_color);
+ }
+
+
+.sidebar {
+   height: 100%; 
+   width: 0; 
+   top: 0;
+   left: 0;
+   position: fixed;
+   z-index: 1;
+   background-color: var(--main_btn_bg_color); 
+   overflow: hidden;
+   padding-top: 3vw;
+   transition: 0.5s;
+ }
+
+.sidebar a {
+   padding: 8px 8px 8px 32px;
+   padding-top: 2.5vw;
+  text-decoration: none;
+  font-size: 1.5vw;
+  color: var(--btn_text_color);
+  display: block;
+  transition: 0.5s;
+}
+
+
+
+.sidebar a:hover{
+   color: var(--hover_color)
+ }
+
+/* After i added the state toggle in javascript to allow the menu
+button to close the sidebar, this close button became somewhat
+redundant but I kept it in there as a second option*/
+.sidebar .closebtn {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 2vw;
+   margin-left: 50px;
+ }
+
+ 
+footer {
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   background-color: var(--main_btn_bg_color);
+   color: var(--btn_text_color);
+   transition: 0.5s;
+ }
+
+
